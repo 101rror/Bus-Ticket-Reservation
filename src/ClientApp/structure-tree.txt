@@ -1,0 +1,57 @@
+Project folder tree (root: g:\\ClientApp)
+
+I scanned the workspace and produced this hierarchical listing of files and folders. Duplicates (from repeated search results) were removed.
+
+.editorconfig
+.gitignore
+.vscode/
+  extensions.json
+  launch.json
+  tasks.json
+angular.json
+package-lock.json
+package.json
+postcss.config.cjs
+README.md
+tailwind.config.cjs
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+public/
+  favicon.ico
+src/
+  index.html
+  main.server.ts
+  main.ts
+  polyfills.ts
+  server.ts
+  styles.css
+  app/
+    app-routing.module.ts
+    app.component.html
+    app.component.ts
+    app.config.server.ts
+    app.config.ts
+    app.css
+    app.html
+    app.module.ts
+    app.routes.server.ts
+    app.routes.ts
+    app.spec.ts
+    app.ts
+    components/
+      results-page/
+        results-page.component.html
+        results-page.component.ts
+      search-section/
+        search-section.component.html
+        search-section.component.ts
+      seat-selection/
+        seat-selection.component.html
+        seat-selection.component.ts
+
+Notes:
+- Angular project (Angular CLI config and TypeScript configs present).
+- Server-side entry points: src\main.server.ts and src\server.ts (possible Angular Universal).
+- Tailwind/PostCSS configured (tailwind.config.cjs, postcss.config.cjs).
+- VS Code launch and tasks available in .vscode/.

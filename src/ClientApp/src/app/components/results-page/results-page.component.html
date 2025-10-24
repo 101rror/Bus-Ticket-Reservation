@@ -1,0 +1,45 @@
+<div class="py-8 px-4">
+  <div class="max-w-5xl mx-auto">
+    <header class="rounded-xl overflow-hidden mb-6">
+      <div class="bg-gradient-to-b from-gray-100 to-transparent p-6 rounded-t-xl">
+        <div class="flex justify-between items-center">
+          <div>
+            <div class="text-lg font-semibold">{{ from }} to {{ to }} <span *ngIf="date" class="font-normal text-sm">on {{ date }}</span></div>
+            <div class="text-sm text-gray-500 mt-2">Total Buses Found: {{ buses.length }} • Total Operators: 3 • Total Seats: 200</div>
+          </div>
+          <div>
+            <button (click)="modifySearch()" class="px-3 py-2 rounded-md border bg-white text-sm">Modify Search</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-4">
+      <div *ngFor="let b of buses" class="flex justify-between items-center bg-white rounded-lg p-4 shadow" style="border:1px solid rgba(225,27,35,0.06);">
+        <div class="flex-1">
+          <div class="font-semibold text-gray-800">{{ b.operator }}</div>
+          <div class="flex flex-wrap items-center gap-6 text-gray-500 mt-2">
+            <div>
+              <div class="text-sm font-bold text-gray-800">{{ b.startTime }}</div>
+              <div class="text-xs">{{ b.routeFrom }}</div>
+            </div>
+
+            <div>
+              <div class="text-sm font-bold text-gray-800">{{ b.arrivalTime }}</div>
+              <div class="text-xs">{{ b.routeTo }}</div>
+            </div>
+
+            <div class="text-sm">Seats Left: <span class="text-brand font-semibold">{{ b.seatsLeft }}</span></div>
+          </div>
+
+          <a href="#" class="block text-sm text-red-400 mt-2">Cancellation policy</a>
+        </div>
+
+        <div class="flex flex-col items-end ml-4">
+          <div class="text-2xl font-extrabold text-brand">৳{{ b.fare }}</div>
+          <button (click)="viewSeats(b.id)" class="mt-3 bg-brand text-white px-4 py-2 rounded-md">View Seats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
