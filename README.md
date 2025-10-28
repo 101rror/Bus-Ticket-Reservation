@@ -15,7 +15,7 @@ Simple bus ticket reservation system (ASP.NET Web API backend + Angular frontend
 
 Quick start for developers who clone this repo.
 
-Prerequisites
+Things you need before you start:
 - .NET SDK 7.0 or later
 - Node.js 16+ and npm
 
