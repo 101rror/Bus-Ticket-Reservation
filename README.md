@@ -23,7 +23,7 @@ Prerequisites
 
 ```powershell
 git clone https://github.com/101rror/Bus-Ticket-Reservation.git
-cd BusTicketReservation/src
+cd BusTicketReservationSystem/src
 dotnet restore
 dotnet build -c Debug
 ```
@@ -35,39 +35,34 @@ Edit `WebApi/appsettings.Development.json`
 Apply migrations (optional)
 
 ```powershell
-dotnet ef database update --project Infrastructure/Infrastructure.csproj --startup-project WebApi/WebApi.csproj
+dotnet ef database update
 ```
 
 # Running the Backend
 
-To run the backend (.NET) application:
+To run the backend:
 
 1. Open a terminal and navigate to `src/WebApi` directory.
 2. Run the following command:
 
 	```powershell
+    dotnet build
 	dotnet run
 	```
 
-This will start the backend server.
-
-# Run the API
-
-```powershell
-dotnet run --project WebApi/WebApi.csproj
-```
 
 # Run the frontend
 
 ```powershell
+cd src
 cd ClientApp
 npm install
-npm run start
+ng serve --open
 ```
 
 # Run tests
 
 ```powershell
-cd ..
-dotnet test Tests/Tests.csproj
+cd src
+dotnet test
 ```
