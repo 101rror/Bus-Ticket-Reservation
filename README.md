@@ -38,6 +38,19 @@ Apply migrations (optional)
 dotnet ef database update --project Infrastructure/Infrastructure.csproj --startup-project WebApi/WebApi.csproj
 ```
 
+## Running the Backend
+
+To run the backend (.NET) application:
+
+1. Open a terminal and navigate to `src/WebApi` directory.
+2. Run the following command:
+
+	```powershell
+	dotnet run
+	```
+
+This will start the backend server.
+
 Run the API
 
 ```powershell
