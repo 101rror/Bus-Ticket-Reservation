@@ -1,0 +1,11 @@
+G:\BusTicketReservationSystem\src\Domain\bin\Debug\net9.0\Domain.deps.json
+G:\BusTicketReservationSystem\src\Domain\bin\Debug\net9.0\Domain.dll
+G:\BusTicketReservationSystem\src\Domain\bin\Debug\net9.0\Domain.pdb
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.dll
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\refint\Domain.dll
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\Domain.pdb
+G:\BusTicketReservationSystem\src\Domain\obj\Debug\net9.0\ref\Domain.dll

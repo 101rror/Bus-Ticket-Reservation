@@ -1,0 +1,15 @@
+G:\BusTicketReservationSystem\src\Application.Contracts\bin\Debug\net9.0\Application.Contracts.deps.json
+G:\BusTicketReservationSystem\src\Application.Contracts\bin\Debug\net9.0\Application.Contracts.dll
+G:\BusTicketReservationSystem\src\Application.Contracts\bin\Debug\net9.0\Application.Contracts.pdb
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.AssemblyInfoInputs.cache
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.AssemblyInfo.cs
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.csproj.CoreCompileInputs.cache
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.dll
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\refint\Application.Contracts.dll
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.pdb
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\ref\Application.Contracts.dll
+G:\BusTicketReservationSystem\src\Application.Contracts\bin\Debug\net9.0\Domain.dll
+G:\BusTicketReservationSystem\src\Application.Contracts\bin\Debug\net9.0\Domain.pdb
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Application.Contracts.csproj.AssemblyReference.cache
+G:\BusTicketReservationSystem\src\Application.Contracts\obj\Debug\net9.0\Applicat.6ADCBA11.Up2Date

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService, AvailableBusDto } from '../../services/api.service';
 
 type BusSummary = {
   id: string;
@@ -22,7 +23,10 @@ export class ResultsPageComponent implements OnInit {
   date = '';
   buses: BusSummary[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  loading = false;
+  error: string | null = null;
+
+  constructor(private route: ActivatedRoute, private router: Router, private api: ApiService) {}
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(q => {
@@ -31,12 +35,13 @@ export class ResultsPageComponent implements OnInit {
       this.date = q.get('date') || this.date;
     });
 
-    // Dummy data (UI only)
-    this.buses = [
-      { id: '1', operator: 'National Travels', startTime: '06:00 AM', arrivalTime: '01:30 PM', seatsLeft: 36, fare: 700, routeFrom: 'Kallyanpur', routeTo: 'Chapai Nawabganj' },
-      { id: '2', operator: 'Hanif Enterprise', startTime: '06:00 AM', arrivalTime: '01:30 PM', seatsLeft: 40, fare: 700, routeFrom: 'Mohakhali', routeTo: 'Chapai Nawabganj' },
-      { id: '3', operator: 'Grameen Travels', startTime: '06:01 AM', arrivalTime: '12:51 PM', seatsLeft: 36, fare: 700, routeFrom: 'Kallyanpur', routeTo: 'Chapai' }
-    ];
+    // Fetch results after query params are applied so we send the correct params
+    this.route.queryParamMap.subscribe(q => {
+      // subscription above already sets values; call fetchResults here to ensure
+      // the API receives the query params (from/to/date) rather than running
+      // before the async subscription fires.
+      this.fetchResults();
+    });
   }
 
   viewSeats(id: string) {
@@ -45,5 +50,34 @@ export class ResultsPageComponent implements OnInit {
 
   modifySearch() {
     this.router.navigate(['/']);
+  }
+
+  fetchResults() {
+    if (!this.date) {
+      this.error = 'Please select a journey date';
+      return;
+    }
+    this.loading = true;
+    this.error = null;
+    this.api.search(this.from, this.to, this.date).subscribe({
+      next: (data: AvailableBusDto[]) => {
+        this.buses = data.map(d => ({
+          id: d.busScheduleId,
+          operator: d.busName,
+          startTime: new Date(d.journeyDate).toLocaleTimeString(),
+          arrivalTime: '',
+          seatsLeft: d.availableSeats,
+          fare: 0,
+          routeFrom: d.fromCity,
+          routeTo: d.toCity
+        }));
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Could not load buses';
+        console.error(err);
+        this.loading = false;
+      }
+    });
   }
 }

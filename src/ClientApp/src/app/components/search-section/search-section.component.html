@@ -1,44 +1,100 @@
-<div class="py-8 px-4">
-  <div class="max-w-5xl mx-auto bg-white rounded-xl shadow p-6 border" style="border-color: rgba(225,27,35,0.06);">
-    <div class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
-      <div class="md:col-span-2">
-        <label class="block text-sm text-gray-500 mb-1">Going from</label>
-        <input [(ngModel)]="from" class="w-full rounded-lg border border-pink-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+<div class="overlay"></div>
+
+<div class="content-area">
+  <div class="py-8 px-4">
+    <div
+      class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8 border border-pink-100"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-9 gap-4 items-end">
+        <!-- Going From -->
+        <div class="md:col-span-2">
+          <label
+            class="block text-xs font-medium text-gray-500 mb-1 uppercase tracking-wide"
+            >Going From</label
+          >
+          <input
+            [(ngModel)]="from"
+            placeholder="Select location"
+            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-red-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Swap button -->
+        <div class="md:col-span-1 flex justify-center items-center">
+          <button
+            (click)="swapLocations()"
+            class="w-10 h-10 flex items-center justify-center rounded-full border border-red-500 text-red-500 text-lg hover:bg-red-50"
+          >
+            ⇄
+          </button>
+        </div>
+
+        <!-- Going To -->
+        <div class="md:col-span-2">
+          <label
+            class="block text-xs font-medium text-gray-500 mb-1 uppercase tracking-wide"
+            >Going To</label
+          >
+          <input
+            [(ngModel)]="to"
+            placeholder="Select destination"
+            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-red-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Journey Date -->
+        <div class="md:col-span-2">
+          <label
+            class="block text-xs font-medium text-gray-500 mb-1 uppercase tracking-wide"
+            >Journey Date</label
+          >
+          <input
+            type="date"
+            [(ngModel)]="date"
+            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-red-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Return Date -->
+        <div class="md:col-span-2">
+          <label
+            class="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide"
+            >Return Date</label
+          >
+          <input
+            type="date"
+            [(ngModel)]="date"
+            disabled
+            class="w-full rounded-lg border border-gray-200 px-4 py-3 bg-gray-100"
+          />
+        </div>
       </div>
 
-      <div class="flex items-center justify-center text-2xl text-gray-400 hidden md:flex">↔</div>
-
-      <div class="md:col-span-2">
-        <label class="block text-sm text-gray-500 mb-1">Going to</label>
-        <input [(ngModel)]="to" class="w-full rounded-lg border border-pink-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+      <!-- Trending -->
+      <div class="mt-5">
+        <div
+          class="flex items-center text-sm text-gray-600 font-medium space-x-4"
+        >
+          <span>Trending Searches:</span>
+          <button
+            *ngFor="let t of trending"
+            (click)="applyTrending(t)"
+            class="px-4 py-1.5 rounded-sm bg-gray-100 text-sm text-gray-700 hover:bg-gray-200 border border-gray-200"
+          >
+            {{ t.from }} → {{ t.to }}
+          </button>
+        </div>
       </div>
 
-      <div>
-        <label class="block text-sm text-gray-500 mb-1">Journey date</label>
-        <input type="date" [(ngModel)]="date" class="w-full rounded-lg border border-pink-100 px-3 py-2" />
-      </div>
-
-      <div>
-        <label class="block text-sm text-gray-500 mb-1">Return date</label>
-        <input type="date" disabled class="w-full rounded-lg border border-pink-100 px-3 py-2 bg-gray-50" />
-      </div>
-    </div>
-
-    <div class="mt-4">
-      <div class="text-sm text-gray-600">Trending Searches:</div>
-      <div class="mt-2 flex flex-wrap gap-2">
-        <button *ngFor="let t of trending"
-                (click)="applyTrending(t)"
-                class="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-700 hover:bg-gray-200">
-          {{ t.from }} → {{ t.to }}
+      <!-- Button -->
+      <div class="mt-8 flex justify-center">
+        <button
+          (click)="onSearch()"
+          class="bg-red-500 text-white font-semibold px-10 py-3 rounded-lg shadow hover:bg-red-600 text-lg"
+        >
+          Search Bus
         </button>
       </div>
-    </div>
-
-    <div class="mt-6 flex justify-center">
-      <button (click)="onSearch()" class="bg-brand text-white font-semibold px-6 py-2 rounded-lg shadow hover:opacity-95">
-        Search Bus
-      </button>
     </div>
   </div>
 </div>

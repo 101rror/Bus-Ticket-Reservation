@@ -1,11 +1,23 @@
 <div class="py-8 px-4">
   <div class="max-w-5xl mx-auto">
-    <header class="rounded-xl overflow-hidden mb-6">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="text-center py-8">
+      <div class="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto"></div>
+      <p class="mt-4 text-gray-600">Loading available buses...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+      <strong class="font-bold">Error!</strong>
+      <span class="block sm:inline"> {{ error }}</span>
+    </div>
+
+    <header *ngIf="!loading" class="rounded-xl overflow-hidden mb-6">
       <div class="bg-gradient-to-b from-gray-100 to-transparent p-6 rounded-t-xl">
         <div class="flex justify-between items-center">
           <div>
-            <div class="text-lg font-semibold">{{ from }} to {{ to }} <span *ngIf="date" class="font-normal text-sm">on {{ date }}</span></div>
-            <div class="text-sm text-gray-500 mt-2">Total Buses Found: {{ buses.length }} • Total Operators: 3 • Total Seats: 200</div>
+            <div class="text-lg font-semibold">{{ from }} to {{ to }} <span *ngIf="date" class="font-normal text-sm">on {{ date | date:'mediumDate' }}</span></div>
+            <div class="text-sm text-gray-500 mt-2">Total Buses Found: {{ buses.length }}</div>
           </div>
           <div>
             <button (click)="modifySearch()" class="px-3 py-2 rounded-md border bg-white text-sm">Modify Search</button>
