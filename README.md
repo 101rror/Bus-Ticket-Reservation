@@ -19,7 +19,7 @@ Prerequisites
 - .NET SDK 7.0 or later
 - Node.js 16+ and npm
 
-Clone and build
+# Clone and build
 
 ```powershell
 git clone https://github.com/101rror/Bus-Ticket-Reservation.git
@@ -28,7 +28,7 @@ dotnet restore
 dotnet build -c Debug
 ```
 
-Configure database
+# Configure database
 
 Edit `WebApi/appsettings.Development.json`
 
@@ -38,7 +38,7 @@ Apply migrations (optional)
 dotnet ef database update --project Infrastructure/Infrastructure.csproj --startup-project WebApi/WebApi.csproj
 ```
 
-## Running the Backend
+# Running the Backend
 
 To run the backend (.NET) application:
 
@@ -51,13 +51,13 @@ To run the backend (.NET) application:
 
 This will start the backend server.
 
-Run the API
+# Run the API
 
 ```powershell
 dotnet run --project WebApi/WebApi.csproj
 ```
 
-Run the frontend
+# Run the frontend
 
 ```powershell
 cd ClientApp
@@ -65,7 +65,7 @@ npm install
 npm run start
 ```
 
-Run tests
+# Run tests
 
 ```powershell
 cd ..
